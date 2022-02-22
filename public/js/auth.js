@@ -19,12 +19,9 @@ miFormulario.addEventListener( 'submit', ( e ) => {
         headers: { 'Content-Type': 'application/json' }
     })
     .then( response => response.json() )
-    .then(({ msg, token }) =>{
-        if( msg ) {
-            return console.error( msg );
-        }
-
+    .then(({ token }) =>{
         localStorage.setItem( 'token', token );
+        window.location = 'chat.html'
     })
     .catch( error => console.log( error ))
 });
@@ -42,6 +39,7 @@ function onSignIn( googleUser ) {
     }).then( resp => resp.json() )
     .then(({ token }) => {
         localStorage.setItem( 'token', token );
+        window.location = 'chat.html'
     })
     .catch( console.log ) 
 }
