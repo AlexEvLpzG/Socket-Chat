@@ -19,3 +19,5 @@ express-fileupload: npm i express-fileupload
 uuid = npm i uuid 
 
 cloudinary = npm i cloudinary
+
+socket.io = npm i socket.io
