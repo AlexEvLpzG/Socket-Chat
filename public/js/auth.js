@@ -21,7 +21,7 @@ miFormulario.addEventListener( 'submit', ( e ) => {
     .then( response => response.json() )
     .then(({ token }) =>{
         localStorage.setItem( 'token', token );
-        window.location = 'chat.html'
+        window.location = 'chat.html';
     })
     .catch( error => console.log( error ))
 });
