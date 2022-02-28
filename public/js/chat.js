@@ -51,13 +51,28 @@ const conectarSocket = async() => {
 
     });
 
-    socket.on( 'usuarios-activos', () => {
-
-    });
+    socket.on( 'usuarios-activos', dibujarUsuarios );
     
     socket.on( 'mensaje-privado', () => {
         
     });
+}
+
+const dibujarUsuarios = ( usuarios = [] ) => {
+    let userHtml = '';
+
+    usuarios.forEach(({ nombre, uid }) => {
+        userHtml += `
+            <li>
+                <p>
+                    <h5 class="text-success">${ nombre }</h5>
+                    <span class="fs-6 text-muted">${ uid }</span>
+                </p>
+            </li>
+        `;
+    });
+
+    ulUsuarios.innerHTML = userHtml;
 }
 
 const main = async() => {
